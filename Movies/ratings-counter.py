@@ -5,7 +5,7 @@ conf = SparkConf().setMaster("local").setAppName("RatingsHistogram")
 sc = SparkContext(conf = conf)
 sc.setLogLevel("ERROR")
 
-lines = sc.textFile("file:///Users/costinbosoaga/work/BigDataCourse/SparkCourse/ml-latest-small/u.data")
+lines = sc.textFile("ml-latest-small/u.data")
 ratings = lines.map(lambda x: x.split()[2])
 result = ratings.countByValue()
 

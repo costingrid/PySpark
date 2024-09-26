@@ -14,7 +14,7 @@ import codecs
 def loadMovieNames():
     movieNames = {}
     # CHANGE THIS TO THE PATH TO YOUR u.ITEM FILE:
-    with codecs.open("/Users/costinbosoaga/work/BigDataCourse/SparkCourse/ml-latest-small/u.ITEM",
+    with codecs.open("ml-latest-small/u.ITEM",
                      "r", encoding='ISO-8859-1', errors='ignore') as f:
         for line in f:
             fields = line.split('|')
@@ -35,8 +35,7 @@ schema = StructType([
     StructField("timestamp", LongType(), True)])
 
 # Load up movie data as dataframe
-moviesDF = spark.read.option("sep", "\t").schema(schema).csv("file:///Users/costinbosoaga/work/BigDataCourse"
-                                                             "/SparkCourse/ml-latest-small/u.data")
+moviesDF = spark.read.option("sep", "\t").schema(schema).csv("ml-latest-small/u.data")
 
 movieCounts = moviesDF.groupBy("movieID").count()
 

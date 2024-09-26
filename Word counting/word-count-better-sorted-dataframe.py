@@ -5,7 +5,7 @@ spark = SparkSession.builder.appName("WordCount").getOrCreate()
 spark.sparkContext.setLogLevel("ERROR")
 
 # Read each line of my book into a dataframe
-inputDF = spark.read.text("file:///Users/costinbosoaga/work/BigDataCourse/SparkCourse/book.txt")
+inputDF = spark.read.text("book.txt")
 
 # Split using a regular expression that extracts words
 words = inputDF.select(func.explode(func.split(inputDF.value, "\\W+")).alias("word"))

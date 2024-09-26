@@ -4,7 +4,7 @@ spark = SparkSession.builder.appName("SparkSQL").getOrCreate()
 spark.sparkContext.setLogLevel("ERROR")
 
 people = spark.read.option("header", "true").option("inferSchema", "true")\
-    .csv("file:///Users/costinbosoaga/work/BigDataCourse/SparkCourse/fakefriends-header.csv")
+    .csv("fakefriends-header.csv")
     
 print("Here is our inferred schema:")
 people.printSchema()

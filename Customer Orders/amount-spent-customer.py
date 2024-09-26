@@ -13,7 +13,7 @@ def parseLine(line):
     return customer_id, amount
 
 
-lines = sc.textFile("file:///Users/costinbosoaga/work/BigDataCourse/SparkCourse/customer-orders.csv")
+lines = sc.textFile("customer-orders.csv")
 rdd = lines.map(parseLine)
 totals = rdd.reduceByKey(add)
 amounts_sorted = totals.map(lambda x: (x[1], x[0])).sortByKey()

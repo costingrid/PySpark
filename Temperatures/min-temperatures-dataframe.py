@@ -12,7 +12,7 @@ schema = StructType([
     StructField("temperature", FloatType(), True)])
 
 # // Read the file as dataframe
-df = spark.read.schema(schema).csv("file:///Users/costinbosoaga/work/BigDataCourse/SparkCourse/1800.csv")
+df = spark.read.schema(schema).csv("1800.csv")
 df.printSchema()
 
 # Filter out all but TMIN entries

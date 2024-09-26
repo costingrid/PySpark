@@ -13,8 +13,7 @@ schema = StructType([
     StructField("timestamp", LongType(), True)])
 
 # Load up movie data as dataframe
-moviesDF = spark.read.option("sep", "\t").schema(schema).csv("file:///Users/costinbosoaga/work/BigDataCourse"
-                                                             "/SparkCourse/ml-latest-small/u.data")
+moviesDF = spark.read.option("sep", "\t").schema(schema).csv("ml-latest-small/u.data")
 
 # Some SQL-style magic to sort all movies by popularity in one line!
 topMovieIDs = moviesDF.groupBy("movieID").count().orderBy(func.desc("count"))

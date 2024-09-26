@@ -10,7 +10,7 @@ conf = SparkConf().setMaster("local").setAppName("WordCount")
 sc = SparkContext(conf=conf)
 sc.setLogLevel("ERROR")
 
-input_text = sc.textFile("file:///Users/costinbosoaga/work/BigDataCourse/SparkCourse/book.txt")
+input_text = sc.textFile("book.txt")
 words = input_text.flatMap(normalizeWords)
 wordCounts = words.map(lambda x: (x, 1)).reduceByKey(lambda x, y: x + y)
 wordCountsSorted = wordCounts.map(lambda x: (x[1], x[0])).sortByKey()

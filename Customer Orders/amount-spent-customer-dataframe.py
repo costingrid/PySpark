@@ -11,7 +11,7 @@ schema = StructType([
     StructField("amount", FloatType(), True)])
 
 # // Read the file as dataframe
-df = spark.read.schema(schema).csv("file:///Users/costinbosoaga/work/BigDataCourse/SparkCourse/customer-orders.csv")
+df = spark.read.schema(schema).csv("customer-orders.csv")
 df.printSchema()
 
 customer_amounts = df.select("customerID", "amount")
